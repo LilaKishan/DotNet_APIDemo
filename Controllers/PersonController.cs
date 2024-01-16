@@ -2,6 +2,9 @@
 using APIDemo.DAL;
 using APIDemo.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Practices.EnterpriseLibrary.Data.Sql;
+using System.Data;
+using System.Data.Common;
 
 namespace APIDemo.Controllers
 {
@@ -118,7 +121,7 @@ namespace APIDemo.Controllers
             {
                 Person_BALBase personBALBase = new Person_BALBase();
                 personModel.PersonID = PersonID;
-                bool IsSuccess = personBALBase.API_Person_Update(PersonID,personModel);
+                bool IsSuccess = personBALBase.API_Person_Update(personModel);
                 
                 // Make the Response in Key Value Pair
                 Dictionary<string, dynamic> response = new Dictionary<string, dynamic>();
@@ -137,7 +140,8 @@ namespace APIDemo.Controllers
                     return NotFound(response);
                 }
             }
-            #endregion
+        #endregion
+
 
     }
 }

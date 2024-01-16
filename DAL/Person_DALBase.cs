@@ -129,7 +129,7 @@ namespace APIDemo.DAL
         #endregion
 
         #region API_Person_Update
-        public bool API_Person_Update(int PersonID,PersonModel personModel)
+        public bool API_Person_Update(PersonModel personModel)
         {
             try
             {

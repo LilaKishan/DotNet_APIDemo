@@ -82,13 +82,13 @@ namespace APIDemo.BAL
         #endregion
 
         #region API_Person_Update
-        public bool API_Person_Update(int PersonID,PersonModel personModel)
+        public bool API_Person_Update(PersonModel personModel)
         {
             try
             {
                 Person_DALBase personDAL = new Person_DALBase();
                 
-                if (personDAL.API_Person_Update(PersonID, personModel))
+                if (personDAL.API_Person_Update(personModel))
                 {
                     return true;
                 }
