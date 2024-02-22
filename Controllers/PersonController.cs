@@ -143,5 +143,31 @@ namespace APIDemo.Controllers
         #endregion
 
 
+        #region Post
+        [HttpPost]
+        public IActionResult Postuser([FromForm] UserModel userModel)
+        {
+           // Person_BALBase personBALBase = new Person_BALBase();
+           // bool IsSuccess = personBALBase.API_Person_Insert(userModel);
+            // Make the Response in Key Value Pair
+            Dictionary<string, dynamic> response = new Dictionary<string, dynamic>();
+            if (true)
+            {
+                response.Add("status", true);
+                response.Add("message", "Data inserted successfully");
+
+                return Ok(response);
+            }
+            else
+            {
+                response.Add("status", false);
+                response.Add("message", "some error occur..!");
+
+                return NotFound(response);
+            }
+
+        }
+        #endregion
+
     }
 }

@@ -1,8 +1,12 @@
+using APIDemo.Models;
+using FluentValidation.AspNetCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<PersonModel>())
+    .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<UserModel>()).AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<EventModel>());
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
